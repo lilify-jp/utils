@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="pageTitle">Utils Library</title>
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="index.css">
+</head>
+<body class="index-page">
+  <div class="container">
+    <h1 data-i18n="heading">Tools</h1>
+    <div class="tool-grid">
+      <a class="tool-card" href="cc.html">
+        <div class="tool-name" data-i18n="ccName">Card Details Form</div>
+        <div class="tool-desc" data-i18n="ccDesc">Enter card number, expiry, and CVC</div>
+      </a>
+    </div>
+  </div>
+
+<script src="i18n.js"></script>
+<script>
+  I18N.init({
+    en: {
+      pageTitle: "Utils Library",
+      heading: "Tools",
+      ccName: "Card Details Form",
+      ccDesc: "Enter card number, expiry, and CVC"
+    },
+    ja: {
+      pageTitle: "ツール一覧",
+      heading: "ツール",
+      ccName: "カード情報入力フォーム",
+      ccDesc: "カード番号・有効期限・CVCを入力"
+    }
+  }, 'en');
+</script>
+</body>
+</html>

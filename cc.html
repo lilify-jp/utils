@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>カード情報入力</title>
+<style>
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
+    background: #f2f4f7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .card {
+    background: #fff;
+    padding: 32px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    width: 360px;
+    max-width: 100%;
+  }
+  h1 {
+    font-size: 18px;
+    margin: 0 0 20px;
+    color: #222;
+  }
+  .field {
+    margin-bottom: 16px;
+  }
+  .row {
+    display: flex;
+    gap: 12px;
+  }
+  .row .field {
+    flex: 1;
+  }
+  label {
+    display: block;
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 6px;
+  }
+  input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    letter-spacing: 0.5px;
+  }
+  input:focus {
+    outline: none;
+    border-color: #4a90e2;
+  }
+  input:invalid:not(:placeholder-shown) {
+    border-color: #e24a4a;
+  }
+  button {
+    margin-top: 8px;
+    width: 100%;
+    padding: 12px;
+    background: #4a90e2;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #3a7bc8;
+  }
+  .msg {
+    margin-top: 12px;
+    font-size: 13px;
+    color: #2a9d3d;
+    text-align: center;
+    display: none;
+  }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>お支払い情報を入力してください</h1>
+    <form id="ccForm" autocomplete="on">
+      <div class="field">
+        <label for="cardName">カード名義人</label>
+        <input
+          type="text"
+          id="cardName"
+          name="cc-name"
+          autocomplete="cc-name"
+          placeholder="TARO YAMADA"
+          required
+        >
+      </div>
+
+      <div class="field">
+        <label for="cardNumber">カード番号</label>
+        <input
+          type="text"
+          id="cardNumber"
+          name="cc-number"
+          inputmode="numeric"
+          autocomplete="cc-number"
+          placeholder="0000 0000 0000 0000"
+          maxlength="19"
+          pattern="[0-9 ]{13,19}"
+          required
+        >
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="cardExpiry">有効期限 (MM/YY)</label>
+          <input
+            type="text"
+            id="cardExpiry"
+            name="cc-exp"
+            inputmode="numeric"
+            autocomplete="cc-exp"
+            placeholder="MM/YY"
+            maxlength="5"
+            pattern="(0[1-9]|1[0-2])\/[0-9]{2}"
+            required
+          >
+        </div>
+        <div class="field">
+          <label for="cardCvc">セキュリティコード</label>
+          <input
+            type="text"
+            id="cardCvc"
+            name="cc-csc"
+            inputmode="numeric"
+            autocomplete="cc-csc"
+            placeholder="CVC"
+            maxlength="4"
+            pattern="[0-9]{3,4}"
+            required
+          >
+        </div>
+      </div>
+
+      <button type="submit">確認</button>
+      <div class="msg" id="msg">入力を受け付けました。</div>
+    </form>
+  </div>
+
+<script>
+  const numberInput = document.getElementById('cardNumber');
+  const expiryInput = document.getElementById('cardExpiry');
+  const cvcInput = document.getElementById('cardCvc');
+  const form = document.getElementById('ccForm');
+  const msg = document.getElementById('msg');
+
+  numberInput.addEventListener('input', () => {
+    const digits = numberInput.value.replace(/\D/g, '').slice(0, 16);
+    numberInput.value = digits.replace(/(.{4})/g, '$1 ').trim();
+  });
+
+  expiryInput.addEventListener('input', () => {
+    let digits = expiryInput.value.replace(/\D/g, '').slice(0, 4);
+    if (digits.length >= 3) {
+      digits = digits.slice(0, 2) + '/' + digits.slice(2);
+    }
+    expiryInput.value = digits;
+  });
+
+  cvcInput.addEventListener('input', () => {
+    cvcInput.value = cvcInput.value.replace(/\D/g, '').slice(0, 4);
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (form.checkValidity()) {
+      msg.style.display = 'block';
+    }
+  });
+</script>
+</body>
+</html>

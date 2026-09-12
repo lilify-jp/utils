@@ -10,7 +10,6 @@
 </head>
 <body class="cc-page">
   <div class="card">
-    <a class="back-link" href="settings.html" data-i18n="settingsLink">Settings</a>
     <form id="ccForm" autocomplete="on">
       <div class="field">
         <label for="cardName" data-i18n="nameLabel">Cardholder Name</label>
@@ -80,16 +79,14 @@
       nameLabel: "Cardholder Name",
       numberLabel: "Card Number",
       expiryLabel: "Expiry (MM/YY)",
-      cvcLabel: "CVC",
-      settingsLink: "Settings"
+      cvcLabel: "CVC"
     },
     ja: {
       pageTitle: "カード情報",
       nameLabel: "カード名義人",
       numberLabel: "カード番号",
       expiryLabel: "有効期限 (MM/YY)",
-      cvcLabel: "セキュリティコード",
-      settingsLink: "設定"
+      cvcLabel: "セキュリティコード"
     }
   }, 'en');
 
@@ -114,5 +111,6 @@
     cvcInput.value = cvcInput.value.replace(/\D/g, '').slice(0, 4);
   });
 </script>
+<script src="settings-widget.js"></script>
 </body>
 </html>

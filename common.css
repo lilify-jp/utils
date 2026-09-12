@@ -63,10 +63,3 @@ input, select, textarea, button {
 button {
   cursor: pointer;
 }
-
-.back-link {
-  display: inline-block;
-  margin-bottom: 16px;
-  font-size: 13px;
-  text-decoration: none;
-}

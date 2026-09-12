@@ -1,0 +1,84 @@
+body.cc-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.card {
+  background: var(--surface);
+  padding: 32px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px var(--shadow);
+  width: 360px;
+  max-width: 100%;
+}
+
+.card h1 {
+  font-size: 18px;
+  margin: 0 0 20px;
+  color: var(--text);
+}
+
+.card .field {
+  margin-bottom: 16px;
+}
+
+.card .row {
+  display: flex;
+  gap: 12px;
+}
+
+.card .row .field {
+  flex: 1;
+}
+
+.card label {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.card input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  letter-spacing: 0.5px;
+}
+
+.card input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.card input:invalid:not(:placeholder-shown) {
+  border-color: var(--danger);
+}
+
+.card button {
+  margin-top: 8px;
+  width: 100%;
+  padding: 12px;
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.card button:hover {
+  background: var(--accent-hover);
+}
+
+.card .msg {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--success);
+  text-align: center;
+  display: none;
+}

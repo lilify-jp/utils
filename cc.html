@@ -4,87 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>カード情報入力</title>
-<style>
-  body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", sans-serif;
-    background: #f2f4f7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    margin: 0;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  .card {
-    background: #fff;
-    padding: 32px;
-    border-radius: 12px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
-    width: 360px;
-    max-width: 100%;
-  }
-  h1 {
-    font-size: 18px;
-    margin: 0 0 20px;
-    color: #222;
-  }
-  .field {
-    margin-bottom: 16px;
-  }
-  .row {
-    display: flex;
-    gap: 12px;
-  }
-  .row .field {
-    flex: 1;
-  }
-  label {
-    display: block;
-    font-size: 13px;
-    color: #555;
-    margin-bottom: 6px;
-  }
-  input {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px 12px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    letter-spacing: 0.5px;
-  }
-  input:focus {
-    outline: none;
-    border-color: #4a90e2;
-  }
-  input:invalid:not(:placeholder-shown) {
-    border-color: #e24a4a;
-  }
-  button {
-    margin-top: 8px;
-    width: 100%;
-    padding: 12px;
-    background: #4a90e2;
-    color: #fff;
-    border: none;
-    border-radius: 6px;
-    font-size: 15px;
-    cursor: pointer;
-  }
-  button:hover {
-    background: #3a7bc8;
-  }
-  .msg {
-    margin-top: 12px;
-    font-size: 13px;
-    color: #2a9d3d;
-    text-align: center;
-    display: none;
-  }
-</style>
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="cc.css">
 </head>
-<body>
+<body class="cc-page">
   <div class="card">
     <h1>お支払い情報を入力してください</h1>
     <form id="ccForm" autocomplete="on">
@@ -146,8 +69,6 @@
         </div>
       </div>
 
-      <button type="submit">確認</button>
-      <div class="msg" id="msg">入力を受け付けました。</div>
     </form>
   </div>
 
@@ -155,9 +76,6 @@
   const numberInput = document.getElementById('cardNumber');
   const expiryInput = document.getElementById('cardExpiry');
   const cvcInput = document.getElementById('cardCvc');
-  const form = document.getElementById('ccForm');
-  const msg = document.getElementById('msg');
-
   numberInput.addEventListener('input', () => {
     const digits = numberInput.value.replace(/\D/g, '').slice(0, 16);
     numberInput.value = digits.replace(/(.{4})/g, '$1 ').trim();
@@ -173,13 +91,6 @@
 
   cvcInput.addEventListener('input', () => {
     cvcInput.value = cvcInput.value.replace(/\D/g, '').slice(0, 4);
-  });
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    if (form.checkValidity()) {
-      msg.style.display = 'block';
-    }
   });
 </script>
 </body>

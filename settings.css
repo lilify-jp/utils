@@ -1,0 +1,48 @@
+body.settings-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.settings-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 4px 16px var(--shadow);
+  padding: 32px;
+  width: 360px;
+  max-width: 100%;
+}
+
+.settings-card h1 {
+  font-size: 18px;
+  margin: 0 0 24px;
+  color: var(--text);
+}
+
+.settings-field {
+  margin-bottom: 20px;
+}
+
+.settings-field label {
+  display: block;
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.settings-field select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 15px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.settings-field select:focus {
+  outline: none;
+  border-color: var(--accent);
+}

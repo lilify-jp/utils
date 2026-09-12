@@ -12,7 +12,7 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg: #14161a;
     --surface: #1e2126;
     --text: #e8e8e8;
@@ -24,6 +24,19 @@
     --danger: #ef5a5a;
     --shadow: rgba(0, 0, 0, 0.4);
   }
+}
+
+:root[data-theme="dark"] {
+  --bg: #14161a;
+  --surface: #1e2126;
+  --text: #e8e8e8;
+  --text-muted: #a0a4ab;
+  --border: #3a3f47;
+  --accent: #5b9eea;
+  --accent-hover: #6faeef;
+  --success: #4caf58;
+  --danger: #ef5a5a;
+  --shadow: rgba(0, 0, 0, 0.4);
 }
 
 * {
@@ -49,4 +62,11 @@ input, select, textarea, button {
 
 button {
   cursor: pointer;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 16px;
+  font-size: 13px;
+  text-decoration: none;
 }

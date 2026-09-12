@@ -4,12 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-i18n="pageTitle">Utils Library</title>
+<script src="theme.js"></script>
 <link rel="stylesheet" href="common.css">
 <link rel="stylesheet" href="index.css">
 </head>
 <body class="index-page">
   <div class="container">
-    <h1 data-i18n="heading">Tools</h1>
+    <div class="header-row">
+      <h1 data-i18n="heading">Tools</h1>
+      <a class="back-link" href="settings.html" data-i18n="settingsLink">Settings</a>
+    </div>
     <div class="tool-grid">
       <a class="tool-card" href="cc.html">
         <div class="tool-name" data-i18n="ccName">Card Details Form</div>
@@ -24,12 +28,14 @@
     en: {
       pageTitle: "Utils Library",
       heading: "Tools",
+      settingsLink: "Settings",
       ccName: "Card Details Form",
       ccDesc: "Enter card number, expiry, and CVC"
     },
     ja: {
       pageTitle: "ツール一覧",
       heading: "ツール",
+      settingsLink: "設定",
       ccName: "カード情報入力フォーム",
       ccDesc: "カード番号・有効期限・CVCを入力"
     }

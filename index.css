@@ -8,10 +8,21 @@ body.index-page {
   margin: 0 auto;
 }
 
-.container h1 {
+.header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.header-row h1 {
   font-size: 22px;
-  margin: 0 0 24px;
+  margin: 0;
   color: var(--text);
+}
+
+.header-row .back-link {
+  margin-bottom: 0;
 }
 
 .tool-grid {

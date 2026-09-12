@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title data-i18n="pageTitle">Settings</title>
+<script src="theme.js"></script>
+<link rel="stylesheet" href="common.css">
+<link rel="stylesheet" href="settings.css">
+</head>
+<body class="settings-page">
+  <div class="settings-card">
+    <h1 data-i18n="heading">Settings</h1>
+
+    <div class="settings-field">
+      <label for="langSelect" data-i18n="langLabel">Language</label>
+      <select id="langSelect">
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+      </select>
+    </div>
+
+    <div class="settings-field">
+      <label for="themeSelect" data-i18n="themeLabel">Appearance</label>
+      <select id="themeSelect">
+        <option value="system" data-i18n="themeSystem">System</option>
+        <option value="light" data-i18n="themeLight">Light</option>
+        <option value="dark" data-i18n="themeDark">Dark</option>
+      </select>
+    </div>
+
+    <a class="back-link" href="index.html" data-i18n="backLink">&larr; Back to Tools</a>
+  </div>
+
+<script src="i18n.js"></script>
+<script>
+  const translations = {
+    en: {
+      pageTitle: "Settings",
+      heading: "Settings",
+      langLabel: "Language",
+      themeLabel: "Appearance",
+      themeSystem: "System",
+      themeLight: "Light",
+      themeDark: "Dark",
+      backLink: "← Back to Tools"
+    },
+    ja: {
+      pageTitle: "設定",
+      heading: "設定",
+      langLabel: "言語",
+      themeLabel: "表示モード",
+      themeSystem: "システムに合わせる",
+      themeLight: "ライトモード",
+      themeDark: "ダークモード",
+      backLink: "← ツール一覧に戻る"
+    }
+  };
+
+  I18N.init(translations, 'en');
+
+  const langSelect = document.getElementById('langSelect');
+  const themeSelect = document.getElementById('themeSelect');
+
+  langSelect.value = I18N.getLang();
+  themeSelect.value = THEME.getTheme();
+
+  langSelect.addEventListener('change', () => I18N.setLang(langSelect.value));
+  themeSelect.addEventListener('change', () => THEME.setTheme(themeSelect.value));
+</script>
+</body>
+</html>

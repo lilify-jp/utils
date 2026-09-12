@@ -4,11 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title data-i18n="pageTitle">Card Details</title>
+<script src="theme.js"></script>
 <link rel="stylesheet" href="common.css">
 <link rel="stylesheet" href="cc.css">
 </head>
 <body class="cc-page">
   <div class="card">
+    <a class="back-link" href="settings.html" data-i18n="settingsLink">Settings</a>
     <form id="ccForm" autocomplete="on">
       <div class="field">
         <label for="cardName" data-i18n="nameLabel">Cardholder Name</label>
@@ -78,14 +80,16 @@
       nameLabel: "Cardholder Name",
       numberLabel: "Card Number",
       expiryLabel: "Expiry (MM/YY)",
-      cvcLabel: "CVC"
+      cvcLabel: "CVC",
+      settingsLink: "Settings"
     },
     ja: {
       pageTitle: "カード情報",
       nameLabel: "カード名義人",
       numberLabel: "カード番号",
       expiryLabel: "有効期限 (MM/YY)",
-      cvcLabel: "セキュリティコード"
+      cvcLabel: "セキュリティコード",
+      settingsLink: "設定"
     }
   }, 'en');
 

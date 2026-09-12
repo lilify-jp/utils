@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>カード情報入力</title>
+<title data-i18n="pageTitle">Card Details</title>
 <link rel="stylesheet" href="common.css">
 <link rel="stylesheet" href="cc.css">
 </head>
 <body class="cc-page">
   <div class="card">
-    <h1>お支払い情報を入力してください</h1>
     <form id="ccForm" autocomplete="on">
       <div class="field">
-        <label for="cardName">カード名義人</label>
+        <label for="cardName" data-i18n="nameLabel">Cardholder Name</label>
         <input
           type="text"
           id="cardName"
@@ -24,7 +23,7 @@
       </div>
 
       <div class="field">
-        <label for="cardNumber">カード番号</label>
+        <label for="cardNumber" data-i18n="numberLabel">Card Number</label>
         <input
           type="text"
           id="cardNumber"
@@ -40,7 +39,7 @@
 
       <div class="row">
         <div class="field">
-          <label for="cardExpiry">有効期限 (MM/YY)</label>
+          <label for="cardExpiry" data-i18n="expiryLabel">Expiry (MM/YY)</label>
           <input
             type="text"
             id="cardExpiry"
@@ -54,7 +53,7 @@
           >
         </div>
         <div class="field">
-          <label for="cardCvc">セキュリティコード</label>
+          <label for="cardCvc" data-i18n="cvcLabel">CVC</label>
           <input
             type="text"
             id="cardCvc"
@@ -68,14 +67,32 @@
           >
         </div>
       </div>
-
     </form>
   </div>
 
+<script src="i18n.js"></script>
 <script>
+  I18N.init({
+    en: {
+      pageTitle: "Card Details",
+      nameLabel: "Cardholder Name",
+      numberLabel: "Card Number",
+      expiryLabel: "Expiry (MM/YY)",
+      cvcLabel: "CVC"
+    },
+    ja: {
+      pageTitle: "カード情報",
+      nameLabel: "カード名義人",
+      numberLabel: "カード番号",
+      expiryLabel: "有効期限 (MM/YY)",
+      cvcLabel: "セキュリティコード"
+    }
+  }, 'en');
+
   const numberInput = document.getElementById('cardNumber');
   const expiryInput = document.getElementById('cardExpiry');
   const cvcInput = document.getElementById('cardCvc');
+
   numberInput.addEventListener('input', () => {
     const digits = numberInput.value.replace(/\D/g, '').slice(0, 16);
     numberInput.value = digits.replace(/(.{4})/g, '$1 ').trim();
